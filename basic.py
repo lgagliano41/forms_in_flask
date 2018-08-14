@@ -27,7 +27,7 @@ def index():
         session['breed']= form.breed.Data
         session['neutered']= form.neutered.Data
         session['mood']= form.mood.Data
-        session['food']= form.food.choice.Data
+        session['food']= form.food_choice.Data
         session['feedback']= form.feedback.Data
 
         return redirect(url_for('thankyou'))
