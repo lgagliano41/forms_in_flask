@@ -12,11 +12,12 @@ class InfoForm(FlaskForm):
 
     breed = StringField('What breed are you?',validators=[DataRequired])
     neutered = BooleanField('Have you been neutered?')
-    mood = RadioField('Pease choose your mood:',
+    mood = RadioField('Please choose your mood:',
                         choices=[('mood_one','Happy'),('mood_two','excited')])
     food_choice = SelectField(u'Pick your favorite food:',
-                        choices=['chi','chicken'),('bf','beef'),
-                            ('fish','Fish)])
+                        choices=[('chi','chicken'),('bf','beef'),
+                            ('fish','Fish')])
+    feedback = TextAreaField()
     submit =SubmitField('Submit')
 
 @app.route('/', methods=['GET','POST'])
