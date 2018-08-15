@@ -8,6 +8,7 @@ app.config['SECRET_KEY']='mysecretkey'
 
 class SimpleForm(FlaskForm):
 
+     breed= StringField('What breed are you?')
      submit = SubmitField("Click me")
 
 @app.route('/',methods=['GET','POST'])
@@ -16,9 +17,10 @@ def index():
     form = SimpleForm()
 
     if form.validate_on_submit():
-        flash('You just clicked the button!!')
+        session['breed']= form.breed.data
+        flash(f"You just changed your breed to {session['breed']}")
 
-        return redirect(url_for('indexflash'))
+        return redirect(url_for('index'))
 
     return render_template('indexflash.html',form=form)
 
