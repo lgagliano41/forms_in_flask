@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY']='mysecretkey'
 
- class SimpleForm(FlaskForm):
+class SimpleForm(FlaskForm):
 
      submit = SubmitField("Click me")
 
@@ -22,5 +22,5 @@ def index():
 
     return render_template('indexflash.html',form=form)
 
-if __name__=='__main__'
+if __name__=='__main__':
     app.run(debug=True)
